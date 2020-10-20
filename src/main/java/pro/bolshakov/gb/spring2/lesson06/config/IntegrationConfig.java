@@ -7,7 +7,7 @@ import org.springframework.integration.channel.DirectChannel;
 @Configuration
 public class IntegrationConfig {
 
-    @Bean
+    @Bean("channel")
     public DirectChannel channel(){
         return new DirectChannel();
     }
