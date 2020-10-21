@@ -1,14 +1,13 @@
-package pro.bolshakov.gb.spring2.lesson06;
+package pro.bolshakov.gb.spring2.lesson06.controller;
 
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import pro.bolshakov.gb.spring2.lesson06.controller.ProductController;
 
 import java.util.Collections;
 
-@SpringBootApplication(scanBasePackageClasses = {ProductController.class})
+@SpringBootApplication
 public class SpringProductsClient {
 
     public static void main(String[] args) {
