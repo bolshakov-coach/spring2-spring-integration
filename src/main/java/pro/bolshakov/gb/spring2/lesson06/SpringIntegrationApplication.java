@@ -27,8 +27,10 @@ public class SpringIntegrationApplication {
 
 		PollableChannel productsChannel = context.getBean("get_products_channel", PollableChannel.class);
 		Message<?> receive = productsChannel.receive();
-		System.out.println(receive);
-		System.out.println(receive.getPayload());
+		if(receive != null) {
+			System.out.println(receive);
+			System.out.println(receive.getPayload());
+		}
 
 
 	}

@@ -8,6 +8,7 @@ import org.springframework.messaging.MessageHandler;
 import org.springframework.messaging.handler.annotation.Headers;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
+import pro.bolshakov.gb.spring2.lesson06.domain.News;
 
 import java.util.Map;
 
@@ -22,13 +23,11 @@ public class FirstServiceActivator {
         System.out.println("********************");
     }
 
-//    @ServiceActivator(inputChannel = "productsChannel")
-//    @Bean(name = "productsGetter")
-    public MessageHandler productsOut(){
-        HttpRequestExecutingMessageHandler handler =
-                new HttpRequestExecutingMessageHandler("http://localhost:8080/products");
-        handler.setCharset("UTF-8");
-        handler.setHttpMethod(HttpMethod.GET);
-        return handler;
+    @ServiceActivator(inputChannel = "newsChannel")
+    public void listenNewsChannel(@Payload News payload, @Headers Map<String,Object> headers){
+        System.out.println("********** NEWS **********");
+        headers.forEach((k,v) -> System.out.println(k + " -> " + v));
+        System.out.println("Payload -> " + payload);
+        System.out.println("********** NEWS **********");
     }
 }
