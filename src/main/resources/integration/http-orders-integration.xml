@@ -11,18 +11,13 @@
     http://www.springframework.org/schema/integration/http
     http://www.springframework.org/schema/integration/http/spring-integration-http.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
 
-    <bean id="jsonMessageConverter"
-          class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
-    </bean>
-
     <int:channel id="ordersChannel"/>
 
     <int-http:outbound-channel-adapter id="ordersAdapter"
                                        url="http://localhost:8090/orders"
                                        http-method="POST"
                                        charset="UTF-8"
-                                       channel="ordersChannel"
-                                       message-converters="jsonMessageConverter">
+                                       channel="ordersChannel">
     </int-http:outbound-channel-adapter>
 
 </beans>
