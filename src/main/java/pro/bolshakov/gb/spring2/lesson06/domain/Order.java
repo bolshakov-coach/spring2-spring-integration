@@ -10,7 +10,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Order {
-    private String orderId;
+    private long orderId;
     private String username;
     private String address;
     private List<OrderDetails> details;
